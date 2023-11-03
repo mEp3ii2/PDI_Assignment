@@ -1,0 +1,9 @@
+WwcDataRet.java
+needs a command line argument to run
+please type in the full filename and path if needed so that the application
+can run accordingly 
+
+data.csv is the file produce by the data entry application and a test file has been made called testdata.csv if you need
+
+the application for analyising the data works on the assumption that the data is entered in its expected format from the data
+entry application therefor error handling for file isnt really implemented besides checking that the file isnt empty 

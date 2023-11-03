@@ -1,0 +1,27 @@
+MAIN:
+
+    fileName = "data.csv"
+    WRITE "Team Name,Team Code, Goals For, Goals Against,Group" to fileName
+
+    run = true
+
+    WHILE run IS true DO
+        teamName = inputValidator.stringEntry("Team Name: ");
+        teamCode = inputValidator.stringEntry("Team Code: ");
+        goalS = inputValidator.intEntry("Total goals scored by the Team: ");
+        goalA = inputValidator.intEntry("Total goals against the Team: "); 
+        group = inputValidator.charEntry("Group: ");
+
+        comma = ","
+        data = teamName+comma+teamCode+comma+Integer.toString(goalS)+comma+Integer.toString(goalA)+comma+group
+
+        WRITE data  TO fileName
+                
+        DISPLAY "Team data entered! Would You like to enter another team: Y or N "
+        cont = INPUT 
+
+        IF cont is EQUAL TO N THEN
+            run = FALSE
+        END IF
+    END WHILE
+END MAIN

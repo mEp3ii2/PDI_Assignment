@@ -1,0 +1,36 @@
+METHOD: getFunction
+IMPORT: selection
+EXPORT: getter
+ASSERTIONS: a pointer to a getter from the Team object will be returned
+ALGORITHM:
+
+    Switch selection:
+        Case 2:
+            getter = getGoalA()
+        Case 3:
+            getter = getGoalS()
+        Case 1,4,5:
+            getter.getNetGoals()
+        Default:
+            getter.getNetGoals()
+END ALGORITHM
+
+METHOD getMsg
+IMPORT: selection
+EXPORT: msg
+ASSERTIONS: a string messaged is returned to the caller
+ALGORITHM:
+    Switch selection:
+        Case 1:
+            msg = "Net goasl in descending order: "
+        Case 2:
+            msg = "Total goals scored against them in descending order: "
+        Case 3:
+            msg = "Totals goals scored in descending order: " 
+        Case 4:
+            msg = "Best performing team by net goals: "
+        Case 5:
+            msg = : "Net goals in ascending order"
+        Default:
+            msg = "Error"
+END ALGORITHM

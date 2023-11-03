@@ -1,0 +1,131 @@
+
+CONSTRUCTOR with PARAMETERS
+IMPORT: pName: STRING
+        pCode: STRING
+        pGoalS: INTEGER
+        pGoalA: INTEGER
+        pGroup: CHARACTER
+EXPORT: NONE
+ASSERTION: Created team object with imported values
+ALGORITHM:
+    name = pName
+    code = pCode
+    goalS = pGoalS
+    goalA = pGoalA
+    group = pGroup
+    netGoals = goalS - goalA
+END CONSTRUCTOR with PARAMETERS
+
+COPY CONSTRUCTOR
+IMPORT pTeam
+EXPOR: NONE
+ASSERTION: Created a copy of the imported object
+ALGORITHM: 
+    name = pTeam.getName()
+    code = pTeam.getCode()
+    goalS = pTeam.getGoalS()
+    goalA = pTeam.getGoalA()
+    group = pTeam.getGroup()
+    netGoals = pTeam.getNetGoals()
+END COPY CONSTRUCTOR
+
+DEFAULT CONSTRUCTOR
+IMPORT: NONE
+EXPORT:NONE
+ASSERTION: Creates an object with default values
+ALGORITHM:
+    name = "Unregistered Team"
+    code = "NA"
+    goalS = 0
+    goalA = 0
+    group = A
+    netGoals = goalS - goalA
+END DEFAULT CONSTRUCTOR
+
+
+METHOD getName
+IMPORT: NONE
+EXPORT: name
+END getName
+
+METHOD getCode
+IMPORT: NONE
+EXPORT: code
+END getCode
+
+METHOD getGoalS
+IMPORT: NONE
+EXPORT: goalS
+END getGoalS
+
+METHOD getGoalA
+IMPORT: NONE
+EXPORT: goalA
+END getGoalA
+
+METHOD getGroup
+IMPORT: NONE
+EXPORT: group
+END getGroup
+
+METHOD getNetGoals
+IMPORT: NONE
+EXPORT: netGoals
+END getNetGoals
+
+METHOD setName
+IMPORT: name 
+EXPORT: NONE
+ALGORITHM:
+    name = pName
+END setName
+
+METHOD setCode
+IMPORT: code 
+EXPORT: NONE
+ALGORITHM:
+    code = pCode
+END setCode
+
+METHOD setGoalS
+IMPORT: goalS 
+EXPORT: NONE
+ALGORITHM:
+    goalS = pGoalS
+END setGoalS
+
+METHOD setGoalA
+IMPORT: goalA 
+EXPORT: NONE
+ALGORITHM:
+    goalA = pGoalA
+END setGoalA
+
+METHOD setGroup
+IMPORT: group
+EXPORT: NONE
+ALGORITHM:
+    group = pGroup
+END setGroup
+
+METHOD setNetGoals
+IMPORT: netGoals
+EXPORT: NONE
+ALGORITHM:
+    netGoals = goalS - goalA
+END setNetGoals
+
+METHOD: toString
+IMPORT: NONE
+EXPORT: stringMsg1
+
+ALGORITHM:
+    stringMsg1 = "Team Details
+                   Name: + getName()
+                   Code:  + getCode()
+                   Goals Scored: + getGoalS()
+                   Goals Against  + getGoalA()
+                   Group:  + getGroup()
+                   Net Goals:  + getNetGoals()
+    RETURN stringMsg1
+END toString

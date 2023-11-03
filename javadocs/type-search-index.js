@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"<Unnamed>","l":"dataAnalysis"},{"p":"<Unnamed>","l":"fileReader"},{"p":"<Unnamed>","l":"inputValidator"},{"p":"<Unnamed>","l":"sorters"},{"p":"<Unnamed>","l":"Team"},{"p":"<Unnamed>","l":"WwcDataEntry"},{"p":"<Unnamed>","l":"WwcDataRet"}]

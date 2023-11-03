@@ -1,0 +1,79 @@
+METHOD: errorPrinter
+IMPORT: msg
+EXPORT: NONE
+ALGORITHM:
+    CLEAR SCREEN 
+    DISPLAY msg IN RED 
+    DISPLAY "Try again" IN RED
+END ALGORITHM
+
+METHOD: stringEntry
+IMPORT: prompt
+EXPORT: inputString
+ASSERTIONS: prompt  is not null, and a valid string in returned with no symbols or numbers 
+ALGORITHM:
+    DO
+        DISPLAY prompt
+        inputString = INPUT 
+
+        IF inputString IS NOT ONLY LETTERS THEN
+            run = TRUE
+        ELSE 
+            run = FALSE
+        END IF 
+    WHILE run IS TRUE
+    END WHILE
+END stringEntry
+
+METHOD: intEntry
+IMPORT: prompt
+EXPORT: inputInt
+ASSERTIONS: prompt  is not null, and a valid int positive integer value is returned
+ALGORITHM:
+    DO
+        DISPLAY prompt
+        inputInt = INPUT 
+        IF inputInt > 0 THEN
+            run = FALSE
+        ELSE
+            run = TRUE
+        END IF
+    WHILE run IS TRUE
+    END WHILE
+END intEntry
+
+METHOD: charEntry
+IMPORT: prompt
+EXPORT: inputChar
+ASSERTIONS: prompt  is not null, and a valid char that is a letter is returned
+ALGORITHM:
+    DO
+        DISPLAY prompt
+        inputChar = INPUT 
+
+        IF inputChar IS NOT A LETTER THEN AND NOT OF LENGTH 1
+            run = TRUE
+        ELSE 
+            run = FALSE
+        END IF 
+    WHILE run IS TRUE
+    END WHILE
+END charEntry
+
+METHOD: menuIntEntry
+IMPORT: prompt
+EXPORT: inputInt
+ASSERTIONS: prompt  is not null, and a valid int positive integer value between 1 and 5 is returned
+ALGORITHM:
+    DO
+        DISPLAY prompt
+        inputInt = INPUT 
+        IF 1 < inputInt < 5 IS NOT TRUE THEN
+            run = FALSE
+        ELSE
+            run = TRUE
+        END IF
+    WHILE run IS TRUE
+    END WHILE
+END intEntry
+

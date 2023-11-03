@@ -1,0 +1,57 @@
+MAIN:
+
+    teams = fileReader.loadFile 
+    dataAnalysisMenu(teams)
+
+END MAIN
+
+METHOD: dataAnalysisMenu
+IMPORT: teams, an array of Team objects
+EXPORT: NONE
+
+ALGORITHM
+    
+    run = true
+
+    WHILE run IS true DO
+        groupSel = inputValidator.menuIntEntry("Group or competition Analysis
+                                                Enter '1' for group 
+                                                Enter '2' for competition Analysis ")
+        IF groupSel IS 1 THEN
+            groupTeam = array of Teams 
+            groups = array of chars 
+
+            DISPLAY "Groups: "
+            match = false
+            WHILE match IS FALSE DO 
+                groupsChars = EMPTY string
+                FOR EACH char c IN groups
+                    IF c IS NOT NULL OR WHITESPACE Character THEN
+                        CONCATENATE  c TO groupsChars
+                    END IF
+                END FOR
+
+                InptGroup = inputValidator.charEntry("Please select a group"+groupsChars)
+
+                FOR I = 1 TO LENGTH OF teams CHANGEBY 1 
+                    IF InptGroup = groups[i] THEN
+                        match = true
+                    ELSE IF match IS FALSE THEN
+                        inputValidator.errorPrinter(InptGroup+" is not a valid group)
+                    END IF
+                END FOR
+            END WHILE
+
+            groupTeam = createGroup(teams, InptGroup)
+            dataAnalysis(groupTeam)
+        ELSE IF groupSel IS 2 THEN
+            dataAnalysis(teams)
+        ELSE IF groupSel IS 3 THEN
+            run = false
+        ELSE
+            DISPLAY "Invalid Input please try again"
+        END IF
+    END WHILE
+
+    DISPLAY "Program closing Goodbye"
+END dataAnalysisMenu

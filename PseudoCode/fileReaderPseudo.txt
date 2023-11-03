@@ -1,0 +1,30 @@
+MEHTOD:loadFile
+IMPORT: NONE
+EXPORT: teams - array of teams objects
+ASSERTIONS: csv file exist and is not empty, team objects are created and return in array
+ALGORITHM:
+        lines = getLineCount()-1
+
+        FOR i=1 to lines CHANGEBY 1
+            READ line FROM data.csv
+            parts = line SPLIT ON ","
+            tName = parts[0]
+            tCode = parts[1]
+            tGoalS = parts[2]
+            tGoalA = parts[3]
+            group = parts[4]
+
+            teams[1] = Team CONSTRUCTOR with PARAMETERS(tName,tCode,tGoalS,tGoalA,group)
+        END FOR
+END loadFile
+
+METHOD: getLineCount
+IMPORT: NONE
+EXPORT: lines
+ASSERTIONS: File exists
+ALGORITHM:
+    lines = 0
+    WHILE File READ DO
+        lines INCREMENT BY 1
+    END WHILE
+END getLineCount
